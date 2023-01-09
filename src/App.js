@@ -1,22 +1,25 @@
-import logo from './logo.svg';
+import Round from './Round.js';
 import './App.css';
+
+let initial_players = [
+  "Player 1",
+  "Player 2",
+  "Player 3",
+  "Player 4",
+  "Player 5",
+  "Player 6",
+  "Player 7",
+  "Player 8",
+];
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Fill in the Draw!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Round players={initial_players} />
       </header>
     </div>
   );
