@@ -65,7 +65,7 @@ ul.round {
   top: 50%;
   transform: translateX(100%);
   width: 20px;
-  height: 2px;
+  height: 1px;
 }
 
 /* .round:not(:last-child) .player:nth-child(odd)::after {
@@ -76,7 +76,7 @@ ul.round {
   top: 20%;
   transform: translateX(100%) rotate(90deg);
   width: 20px;
-  height: 2px;
+  height: 1px;
 } */
 
 .round:not(:first-child) .player::before  {
@@ -87,7 +87,7 @@ ul.round {
   top: 50%;
   transform: translateX(-100%);
   width: 20px;
-  height: 2px;
+  height: 1px;
 }
 
 .player span {
@@ -97,23 +97,23 @@ ul.round {
 .round:not(:last-child) .player:nth-child(odd) span::after {
   content: "";
   position: absolute;
-  background-color: red;
+  background-color: black;
   right: 10px;
   top: 110%;
   transform: translateX(100%) rotate(90deg);
   width: 60px;
-  height: 2px;
+  height: 1px;
 }
 
 .round:not(:last-child) .player:nth-child(even) span::after {
   content: "";
   position: absolute;
-  background-color: red;
+  background-color: black;
   right: 10px;
   top: -10%;
   transform: translateX(100%) rotate(90deg);
   width: 60px;
-  height: 2px;
+  height: 1px;
 }
 
 @keyframes App-logo-spin {
