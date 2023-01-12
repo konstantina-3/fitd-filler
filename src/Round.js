@@ -5,6 +5,8 @@ function Round({ players }) {
   const [winners, setWinners] = useState(new Array(Math.floor(players.length/2)));
 
   function handlePlayerClick(e) {
+    if (!e.target.innerText) return;
+
     const insertAt = Math.floor(e.target.dataset.key/2);
     
     const nextWinners = [
@@ -34,7 +36,7 @@ function Round({ players }) {
   return (
     <>
         <ul className='round'>{players.map((player, index) =>
-            <li className='player'
+            <li className={`player ${!player ? 'disabled' : ''}`}
                 key={index}
                 data-key={index}
                 onClick={handlePlayerClick}>

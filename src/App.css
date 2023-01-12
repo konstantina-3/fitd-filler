@@ -52,6 +52,11 @@ ul.round {
   position: relative;
 }
 
+.player.disabled {
+  background-color: rgb(237, 237, 237);
+  cursor: default;
+}
+
 .round:not(:last-child) .player::after {
   content: "";
   position: absolute;
