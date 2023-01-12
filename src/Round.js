@@ -6,9 +6,6 @@ function Round({ players }) {
 
   function handlePlayerClick(e) {
     const insertAt = Math.floor(e.target.dataset.key/2);
-    console.log(insertAt)
-
-    console.log(winners)
     
     const nextWinners = [
       ...winners.slice(0, insertAt),
@@ -36,12 +33,12 @@ function Round({ players }) {
 
   return (
     <>
-        <ul>{players.map((player, index) =>
-            <li 
+        <ul className='round'>{players.map((player, index) =>
+            <li className='player'
                 key={index}
                 data-key={index}
                 onClick={handlePlayerClick}>
-                {player}
+                <span>{player}</span>
             </li>
         )}</ul>
         {players.length > 1 && <Round players={winners} />}

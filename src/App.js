@@ -10,6 +10,14 @@ let initial_players = [
   "Player 6",
   "Player 7",
   "Player 8",
+  "Player 11",
+  "Player 12",
+  "Player 13",
+  "Player 14",
+  "Player 15",
+  "Player 16",
+  "Player 17",
+  "Player 18",
 ];
 
 function App() {
@@ -19,7 +27,9 @@ function App() {
         <p>
           Fill in the Draw!
         </p>
-        <Round players={initial_players} />
+        <div className='rounds'>
+          <Round players={initial_players} />
+        </div>
       </header>
     </div>
   );

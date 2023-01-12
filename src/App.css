@@ -14,18 +14,101 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.rounds {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul.round {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.player {
+  background-color: lightgrey;
+  padding: 5px 15px;
+  margin: 5px 0;
+  min-height: 40px;
+  min-width: 120px;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+}
+
+.round:not(:last-child) .player::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  right: 0;
+  top: 50%;
+  transform: translateX(100%);
+  width: 20px;
+  height: 2px;
+}
+
+/* .round:not(:last-child) .player:nth-child(odd)::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  right: 0;
+  top: 20%;
+  transform: translateX(100%) rotate(90deg);
+  width: 20px;
+  height: 2px;
+} */
+
+.round:not(:first-child) .player::before  {
+  content: "";
+  position: absolute;
+  background-color: black;
+  left: 0;
+  top: 50%;
+  transform: translateX(-100%);
+  width: 20px;
+  height: 2px;
+}
+
+.player span {
+  pointer-events: none;
+}
+
+.round:not(:last-child) .player:nth-child(odd) span::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  right: 10px;
+  top: 110%;
+  transform: translateX(100%) rotate(90deg);
+  width: 60px;
+  height: 2px;
+}
+
+.round:not(:last-child) .player:nth-child(even) span::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  right: 10px;
+  top: -10%;
+  transform: translateX(100%) rotate(90deg);
+  width: 60px;
+  height: 2px;
 }
 
 @keyframes App-logo-spin {
