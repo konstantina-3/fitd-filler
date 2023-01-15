@@ -8,7 +8,7 @@ function Round({ players }) {
     if (!e.target.innerText) return;
 
     const insertAt = Math.floor(e.target.dataset.key/2);
-    
+
     const nextWinners = [
       ...winners.slice(0, insertAt),
       e.target.innerText,
@@ -16,26 +16,27 @@ function Round({ players }) {
       ...winners.slice(insertAt + 1)
     ];
 
-    console.log(nextWinners)
-
     setWinners(nextWinners);
   }
 
-  for (let i = 0; i < players.length; i += 2) {
-    if (winners[i/2] && winners[i/2] !== players[i] && winners[i/2] !== players[i+1]) {
-        // should a match winner change we want their old winner's potential further round wins to be emptied
+  if (players) {
+    // should a match winner change we want their old winner's potential further round wins to be emptied
+    for (let i = 0; i < players.length; i += 2) {
+      if (winners[i/2] && winners[i/2] !== players[i] && winners[i/2] !== players[i+1]) {
         const nextWinners = [
             ...winners.slice(0, i/2),
             undefined,
             ...winners.slice(i/2 + 1)
-          ];
+        ];
+
         setWinners(nextWinners);
-    }    
+      }
+    }
   }
 
   return (
     <>
-        <ul className='round'>{players.map((player, index) =>
+        <ul className='round'>{players && players.map((player, index) =>
             <li className={`player ${!player ? 'disabled' : ''}`}
                 key={index}
                 data-key={index}
@@ -43,7 +44,7 @@ function Round({ players }) {
                 <span>{player}</span>
             </li>
         )}</ul>
-        {players.length > 1 && <Round players={winners} />}
+        {players && players.length > 1 && <Round players={winners} />}
     </>
   );
 }
