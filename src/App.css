@@ -34,7 +34,9 @@
   justify-content: space-between;
 }
 
-ul.round {
+.round {
+  padding-left: 40px;
+  margin: 1em 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -94,26 +96,41 @@ ul.round {
   pointer-events: none;
 }
 
-.round:not(:last-child) .player:nth-child(odd) span::after {
+.round:not(:last-child) .player:nth-of-type(odd) span::after {
   content: "";
   position: absolute;
   background-color: black;
-  right: 10px;
-  top: 110%;
-  transform: translateX(100%) rotate(90deg);
-  width: 60px;
-  height: 1px;
+  right: -20px;
+  top: 50%;
+  width: 1px;
+  height: 100%;
 }
 
-.round:not(:last-child) .player:nth-child(even) span::after {
+.round:not(:last-child) .player:nth-of-type(even) span::after {
   content: "";
   position: absolute;
   background-color: black;
-  right: 10px;
-  top: -10%;
-  transform: translateX(100%) rotate(90deg);
-  width: 60px;
-  height: 1px;
+  right: -20px;
+  top: -50%;
+  width: 1px;
+  height: 100%;
+}
+
+.match {
+  flex: 1;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.round:not(:last-child) .match::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  right: -20px;
+  width: 1px;
+  height: 50%;
 }
 
 @keyframes App-logo-spin {

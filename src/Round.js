@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import './App.css';
+import Match from './Match.js';
 
 function Round({ players }) {
   const [winners, setWinners] = useState(new Array(Math.floor(players.length/2)));
+
+  const matches = players.reduce((accumulator, _, currentIndex, array) => {
+    if (currentIndex % 2 === 0) {
+      accumulator.push(array.slice(currentIndex, currentIndex + 2));
+    }
+    return accumulator;
+  }, [])
 
   function handlePlayerClick(e) {
     if (!e.target.innerText) return;
@@ -36,14 +43,9 @@ function Round({ players }) {
 
   return (
     <>
-        <ul className='round'>{players && players.map((player, index) =>
-            <li className={`player ${!player ? 'disabled' : ''}`}
-                key={index}
-                data-key={index}
-                onClick={handlePlayerClick}>
-                <span>{player}</span>
-            </li>
-        )}</ul>
+        <div className='round'>{players && matches.map((match, index) =>
+          <Match players={match} onClick={handlePlayerClick} index={index} key={index} ></Match>
+        )}</div>
         {players && players.length > 1 && <Round players={winners} />}
     </>
   );
