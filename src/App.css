@@ -7,11 +7,27 @@
   justify-content: center;
   font-size: calc(10px + 1vmin);
   color: black;
+  margin: 0 20px;
+}
+
+textarea {
+  padding: 6px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 768px) {
+  textarea {
+    width: 50%;
+  }
 }
 
 .rounds {
   display: flex;
   justify-content: space-between;
+
+  overflow: auto;
+  white-space: nowrap;
+  max-width: 90vw;
 }
 
 .round {

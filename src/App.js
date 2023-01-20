@@ -26,13 +26,11 @@ function App() {
         <h1>Fill in the Draw!</h1>
         <h2>Creates an interactive bracket of any tournament size (2<sup>n</sup> participants)</h2>
       </header>
-      <div className='players-input'>
-          <textarea
-            onChange={handleTextAreaChange}
-            placeholder="Enter the first round matches by listing all players on individual lines."
-            name="players-input" id="players-input" cols="80" rows="20">
-          </textarea>
-      </div>
+      <textarea
+        onChange={handleTextAreaChange}
+        placeholder="Enter the first round matches by listing all players on individual lines."
+        name="players-input" id="players-input" rows="20">
+      </textarea>
       <div className='rounds'>
         {players && <Round players={players} key={players}/>}
       </div>
