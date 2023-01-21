@@ -58,7 +58,7 @@ textarea {
   cursor: default;
 }
 
-.round:not(:last-child) .player::after {
+.round-container:not(:last-child) .player::after {
   content: "";
   position: absolute;
   background-color: black;
@@ -69,7 +69,7 @@ textarea {
   height: 1px;
 }
 
-.round:not(:first-child) .player::before  {
+.round-container:not(:first-child) .player::before  {
   content: "";
   position: absolute;
   background-color: black;
@@ -92,11 +92,24 @@ textarea {
   position: relative;
 }
 
-.round:not(:last-child) .match::after {
+.round-container:not(:last-child) .match::after {
   content: "";
   position: absolute;
   background-color: black;
   right: -20px;
   width: 1px;
   height: 50%;
+}
+
+.round-container {
+  position: relative;
+  display: flex;
+}
+
+.round-info {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  font-weight: bold;
+  font-size: smaller;
 }

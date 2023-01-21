@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Match from './Match.js';
+import { RoundContext } from './RoundContext.js';
+
 
 function Round({ players }) {
   const [winners, setWinners] = useState(new Array(Math.floor(players.length/2)));
+  const round = useContext(RoundContext);
 
   const matches = players.reduce((accumulator, _, currentIndex, array) => {
     if (currentIndex % 2 === 0) {
@@ -43,10 +46,15 @@ function Round({ players }) {
 
   return (
     <>
+      <div className='round-container'>
         <div className='round'>{players && matches.map((match, index) =>
           <Match players={match} onClick={handlePlayerClick} index={index} key={index} ></Match>
         )}</div>
+        {players.some(item => item !== undefined) && <div className='round-info'>Round {round}</div>}
+      </div>
+      <RoundContext.Provider value={round + 1}>
         {players && players.length > 1 && <Round players={winners} />}
+      </RoundContext.Provider>
     </>
   );
 }
