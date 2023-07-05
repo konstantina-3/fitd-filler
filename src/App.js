@@ -11,7 +11,7 @@ function App() {
 
   function handleTextAreaChange(e) {
     let input_players = e.target.value
-      .split('\n')
+      .split(/ vs |\n/)
       .filter(item => item)
       .map(item => item.trim().replace(/\s\s+/g, ' '));
 
@@ -28,7 +28,9 @@ function App() {
       </header>
       <textarea
         onChange={handleTextAreaChange}
-        placeholder="Enter the first round matches by listing all players on individual lines."
+        placeholder="Enter each first round match in a new line with the player names separated by ' vs '. E.g:
+Swiatek vs Zhu
+Sabalenka vs Udvardy"
         name="players-input" id="players-input" rows="20">
       </textarea>
       <div className='rounds'>
