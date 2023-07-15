@@ -11,7 +11,7 @@ function App() {
 
   function handleTextAreaChange(e) {
     let input_players = e.target.value
-      .split(/ vs |\n/)
+      .split(/ vs | v |\n/)
       .filter(item => item)
       .map(item => item.trim().replace(/\s\s+/g, ' '));
 
