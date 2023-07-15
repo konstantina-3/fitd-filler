@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Match from './Match.js';
 import { RoundContext } from './RoundContext.js';
 
 
-function Round({ players }) {
+function Round({ players, setComplete }) {
   const [winners, setWinners] = useState(new Array(Math.floor(players.length/2)));
   const round = useContext(RoundContext);
 
@@ -44,6 +44,22 @@ function Round({ players }) {
     }
   }
 
+  useEffect(() => {
+    // if (players.every(value => value !== undefined) && (players.length / 2 === winners.length || players.length === 1)) {
+    //   console.log(true, round, complete)
+    // }
+    // else {
+    //   console.log(false, round)
+    // }
+    if (players.length === 1 && players[0] !== undefined) {
+      setComplete(true)
+    }
+
+    if (!players.every(value => value !== undefined)){
+      setComplete(false)
+    }
+  }, [players, winners, setComplete]);
+
   return (
     <>
       <div className='round-container'>
@@ -53,7 +69,7 @@ function Round({ players }) {
         {players.some(item => item !== undefined) && <div className='round-info'>Round {round}</div>}
       </div>
       <RoundContext.Provider value={round + 1}>
-        {players && players.length > 1 && <Round players={winners} />}
+        {players && players.length > 1 && <Round players={winners} setComplete={setComplete}/>}
       </RoundContext.Provider>
     </>
   );

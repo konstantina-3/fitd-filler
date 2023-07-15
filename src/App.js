@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [players, setPlayers] = useState(null);
+  const [complete, setComplete] = useState(false);
 
   function isPowerOf2(number) {
     return number && !(number & (number - 1));
@@ -72,10 +73,10 @@ Udvardy vs Sabalenka"
         name="players-input" id="players-input" rows="20">
       </textarea>
       <div className='copy-button'>
-        <button type='button' onClick={copyResult}>Copy Result</button>
+        <button type='button' disabled={!complete} onClick={copyResult}>Copy Result</button>
       </div>
       <div className='rounds'>
-        {players && <Round players={players} key={players}/>}
+        {players && <Round players={players} key={players} setComplete={setComplete}/>}
       </div>
     </div>
   );
