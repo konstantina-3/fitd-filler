@@ -15,12 +15,6 @@ textarea {
   width: 90%;
 }
 
-@media only screen and (min-width: 768px) {
-  textarea {
-    width: 50%;
-  }
-}
-
 .rounds {
   display: flex;
   justify-content: space-between;
@@ -112,4 +106,25 @@ textarea {
   left: 50%;
   font-weight: bold;
   font-size: smaller;
+}
+
+.copy-button {
+  margin: 15px 0;
+}
+
+.input-result {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.input-result div {
+  flex: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .input-result {
+    flex-direction: row;
+  }
 }
