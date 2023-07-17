@@ -61,12 +61,15 @@ function App() {
     setResult('');
   }
 
-  async function copyResult() {
-    try {
-      await navigator.clipboard.writeText(result);
-    } catch (err) {
-      console.error('Failed to copy: ', err);
-    }
+  function copyResult() {
+      navigator.clipboard.writeText(result)
+      .catch(err => console.error('Failed to copy: ', err))
+      .then(() => {
+        document.querySelector('.copy-result span').textContent = 'Copied! ✔';
+        setTimeout(()=> {
+          document.querySelector('.copy-result span').textContent = '';
+        }, 3000)
+      });
   }
 
   return (
@@ -92,7 +95,10 @@ function App() {
             placeholder="Your result will appear here only after your bracket is complete to avoid mistakes."
             name="copy-result" id="copy-result" rows="20">
           </textarea>
-          <button type='button' disabled={!complete} onClick={copyResult}>Copy Result</button>
+          <div>
+            <button type='button' disabled={!complete} onClick={copyResult}>Copy Result</button>
+            <span></span>
+          </div>
         </div>
       </div>
       <div className='rounds'>

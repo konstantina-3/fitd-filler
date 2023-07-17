@@ -128,3 +128,14 @@ textarea {
     flex-direction: row;
   }
 }
+
+.copy-result > div {
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.copy-result div > span {
+  position: absolute;
+  right: 0;
+}
