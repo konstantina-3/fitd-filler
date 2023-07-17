@@ -21,6 +21,7 @@ function App() {
       setPlayers(input_players);
     }
     console.log(input_players)
+    setComplete(false);
   }
 
   if (complete) {
